@@ -1,0 +1,53 @@
+
+<h1> Data Entry Form </h1>
+<form #refForm="ngForm" (ngSubmit)="Submit(refForm)">
+ <div class="form-group">
+   <label for="txtName"> Enter Name </label>
+   <input class="form-control" type="text" name="txtName" id="txtName"  required minlength="3"
+   ngModel #name="ngModel">
+   <div class="alert jasmine-alert" *ngIf="name.touched && !name.valid">
+     
+     <div class="alert alert-danger" *ngIf="name.errors.required">
+       Name is must
+     </div>
+     <div class="alert alert-danger" *ngIf="name.errors.minlength">
+     Minimum 3 characters aee needed
+    </div>
+   </div>
+ </div>
+
+ <div class="form-group">
+  <label for="txtEmail"> Enter Email </label>
+  <input class="form-control" type="text" name="txtEmail" id="txtEmail"  required  pattern="[^ @]*@[^ @]*"
+  ngModel #email="ngModel">
+  <div class="alert jasmine-alert" *ngIf="email.touched && !email.valid">
+    
+    <div class="alert alert-danger" *ngIf="email.errors.required">
+      email is must
+    </div>
+    <div class="alert alert-danger" *ngIf="email.errors.pattern">
+    Pattern is mot okay
+   </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="txtAge"> Enter Age </label>
+  <input class="form-control" type="number" name="txtAge" id="txtAge"  required  min="20" max="40"
+  ngModel #age="ngModel">
+  <div class="alert jasmine-alert" *ngIf="age.touched && !age.valid">
+    
+    <div class="alert alert-danger" *ngIf="age.errors.required">
+      age is must
+    </div>
+    <div class="alert alert-danger" *ngIf="age.errors.min">
+    Age should be more than 20
+   </div>
+   <div class="alert alert-danger" *ngIf="age.errors.max">
+    Age should be less than 40
+   </div>
+  </div>
+</div>
+
+ <button type="submit"> Submit </button>
+</form>

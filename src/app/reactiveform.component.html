@@ -1,0 +1,35 @@
+<h1> Data Entry Form </h1>
+  <form [formGroup]="signUpForm" (ngSubmit)="PostData()">
+   <div class="form-group">
+     <label for="txtFName"> Enter First Name </label>
+     <input class="form-control" type="text" name="txtFName" id="txtFName"  required minlength="3" formControlName="firstName">
+     
+    
+   </div>
+  
+   <div class="form-group">
+    <label for="txtLName"> Enter Last Name </label>
+    <input class="form-control" type="text" name="txtLName" id="txtLName"  required minlength="3" formControlName="lastName">
+    
+   
+  </div>
+  
+  <div class="form-group">
+    <label for="txtEmail"> Enter Email </label>
+    <input class="form-control" type="text" name="txtEmail" id="txtEmail"  required minlength="3" [formControl]="email">
+    
+   
+  </div>
+  
+  
+  <div class="form-group">
+    <label for="txtPassword"> Enter Password</label>
+    <input class="form-control" type="text" name="txtPassword" id="txtPassword"  required minlength="3" formControlName="password">
+    
+   
+  </div>
+  
+     
+   <button type="submit"> Submit </button>
+  </form>`
+  

@@ -1,0 +1,19 @@
+/* input.ng-pristine
+{
+  background-color: yellow;
+} */
+
+input.ng-touched.ng-invalid
+{
+  /* background-color: red; */
+  border-left-color: red;
+  border-left: 20px;
+  border-style: solid;
+}
+input.ng-touched.ng-valid
+{
+  border-left-color: green;
+  border-left: 20px;
+   background-color: aquamarine;
+  border-style: solid;
+}

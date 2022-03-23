@@ -1,0 +1,53 @@
+<h1> Data Entry Form1111 </h1>
+  <form [formGroup]="signUpForm" (ngSubmit)="PostData()">
+   <div class="form-group">
+     <label for="txtFName"> Enter First Name </label>
+     <input class="form-control"  type="text" name="txtFName" id="txtFName"   formControlName="firstName">
+      
+     <div class="alert alert-danger" *ngIf="signUpForm.controls['firstName'].hasError('required')">
+       Name is must
+     </div>
+    
+   </div>
+  
+   <div class="form-group">
+    <label for="txtLName"> Enter Last Name </label>
+    <input class="form-control" type="text" name="txtLName" id="txtLName"  formControlName="lastName">
+    <div class="alert alert-danger" *ngIf="signUpForm.controls['lastName'].hasError('required')">
+      Last Name is must
+    </div>
+    <div class="alert alert-danger" *ngIf="signUpForm.controls['lastName'].hasError('minlength')">
+      Min 10 characters needed
+    </div>
+   
+  </div>
+  
+  <div class="form-group">
+    <label for="txtEmail"> Enter Email </label>
+    <input class="form-control" type="text" name="txtEmail" id="txtEmail"  required minlength="3" [formControl]="email">
+    
+   
+  </div>
+  
+  
+  <div class="form-group">
+    <label for="txtPassword"> Enter Password</label>
+    <input class="form-control" type="text" name="txtPassword" id="txtPassword"  formControlName="password">
+    
+   
+  </div>
+
+  <div class="form-group">
+    <label for="txtAge"> Enter Age</label>
+    <input class="form-control" type="number" name="txtAge" id="txtAge"  formControlName="age">
+    <div class="alert alert-danger" *ngIf="signUpForm.controls['age'].hasError('ageRange')">
+     Range is 18 - 45  
+    </div>
+    
+   
+  </div>
+  
+     
+   <button type="submit"> Submit </button>
+  </form>
+  
